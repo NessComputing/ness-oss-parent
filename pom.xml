@@ -12,7 +12,7 @@
     <groupId>com.nesscomputing</groupId>
     <artifactId>base</artifactId>
     <packaging>pom</packaging>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <name>base pom</name>
     <description>This is the Base POM for Ness open source maven projects.</description>
     <url>https://opensource.nesscomputing.com/</url>
