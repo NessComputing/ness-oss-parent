@@ -502,6 +502,36 @@
             </execution>
           </executions>
         </plugin>
+
+        <plugin>
+          <groupId>com.mycila.maven-license-plugin</groupId>
+          <artifactId>maven-license-plugin</artifactId>
+          <version>1.9.0</version>
+          <inherited>false</inherited>
+          <configuration>
+            <header>${basedir}/src/ness/LICENSE-HEADER.txt</header>
+            <aggregate>true</aggregate>
+            <failIfMissing>true</failIfMissing>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <excludes>
+              <exclude>.hg*</exclude>
+              <exclude>.git*</exclude>
+              <exclude>**/*.md</exclude>
+              <exclude>**/*.sh</exclude>
+              <exclude>**/*.txt</exclude>
+              <exclude>**/*.releaseBackup</exclude>
+            </excludes>
+            <strictCheck>true</strictCheck>
+          </configuration>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>format</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
 
@@ -572,4 +602,18 @@
       </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>check-license-headers</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.mycila.maven-license-plugin</groupId>
+            <artifactId>maven-license-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>
