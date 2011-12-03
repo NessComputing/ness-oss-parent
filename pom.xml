@@ -29,6 +29,10 @@
     <project.build.targetJdk>1.6</project.build.targetJdk>
     <ness.build.jvmsize>1024m</ness.build.jvmsize>
 
+    <!-- used in the lifecycle mapping and pluginMgt section. Keep in sync. -->
+    <ness.plugins.enforcer.version>1.0.1</ness.plugins.enforcer.version>
+    <ness.plugins.dependency-versions-check.version>2.0.2</ness.plugins.dependency-versions-check.version>
+
     <!-- the current "best" version of maven -->
     <ness.maven.version>3.0.3</ness.maven.version>
   </properties>
@@ -58,7 +62,7 @@
                       maven-enforcer-plugin
                     </artifactId>
                     <versionRange>
-                      [1.0,)
+                      [${ness.plugins.enforcer.version},)
                     </versionRange>
                     <goals>
                       <goal>enforce</goal>
@@ -77,7 +81,7 @@
                       maven-dependency-versions-check-plugin
                     </artifactId>
                     <versionRange>
-                      [2.0.2,)
+                      [${ness.plugins.dependency-versions-check.version},)
                     </versionRange>
                     <goals>
                       <goal>check</goal>
@@ -126,7 +130,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>1.0.1</version>
+          <version>${ness.plugins.enforcer.version}</version>
           <executions>
             <execution>
               <id>enforce-versions</id>
@@ -424,7 +428,7 @@
         <plugin>
           <groupId>com.ning.maven.plugins</groupId>
           <artifactId>maven-dependency-versions-check-plugin</artifactId>
-          <version>2.0.2</version>
+          <version>${ness.plugins.dependency-versions-check.version}</version>
           <configuration>
             <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
           </configuration>
