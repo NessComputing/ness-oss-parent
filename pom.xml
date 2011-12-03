@@ -10,20 +10,19 @@
   </parent>
 
   <groupId>com.nesscomputing</groupId>
-  <artifactId>base</artifactId>
+  <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.0.2-SNAPSHOT</version>
-  <name>base pom</name>
-  <description>This is the Base POM for Ness open source maven projects.</description>
+  <version>1-SNAPSHOT</version>
+  <name>ness-oss-parent</name>
+  <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
 
   <scm>
     <connection>scm:git:git://github.com/NessComputing/nesscomputing-base-pom.git</connection>
     <developerConnection>scm:git:git@github.com:NessComputing/nesscomputing-base-pom.git</developerConnection>
+    <url>http://github.com/NessComputing/nesscomputing-base-pom</url>
   </scm>
-  <prerequisites>
-    <maven>3.0.3</maven>
-  </prerequisites>
+
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.targetJdk>1.6</project.build.targetJdk>
@@ -32,7 +31,8 @@
   <build>
     <pluginManagement>
       <plugins>
-        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -107,6 +107,13 @@
           <version>2.3.1</version>
         </plugin>
 
+        <!--
+             MAVEN-ENFORCER-PLUGIN (The Loving Iron Fist of Maven™)
+             Global banhammer
+
+             Why?  These artifacts are considered hazardous to your health.  Each has its own rationale,
+             described below inline.
+        -->
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
@@ -342,7 +349,6 @@
             </execution>
           </executions>
           <configuration>
-            <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
             <exceptions combine.children="append">
               <exception>
                 <conflictingDependencies>
