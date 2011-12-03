@@ -24,9 +24,18 @@
   </scm>
 
   <properties>
+    <!-- see http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.build.targetJdk>1.6</project.build.targetJdk>
+    <ness.build.jvmsize>1024m</ness.build.jvmsize>
+
+    <!-- the current "best" version of maven -->
+    <ness.maven.version>3.0.3</ness.maven.version>
   </properties>
+
+  <prerequisites>
+    <maven>${ness.maven.version}</maven>
+  </prerequisites>
 
   <build>
     <pluginManagement>
@@ -147,7 +156,7 @@
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
-                <version>3.0.3</version>
+                <version>${ness.maven.version}</version>
               </requireMavenVersion>
               <requireJavaVersion>
                 <version>${project.build.targetJdk}</version>
@@ -186,7 +195,7 @@
             <source>${project.build.targetJdk}</source>
             <target>${project.build.targetJdk}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
-            <maxmem>1024m</maxmem>
+            <maxmem>${ness.build.jvmsize}</maxmem>
           </configuration>
 
           <!-- Remove after we move to maven-compiler-plugin 2.4 -->
@@ -281,7 +290,7 @@
             <source>${project.build.targetJdk}</source>
             <target>${project.build.targetJdk}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
-            <maxmemory>1024m</maxmemory>
+            <maxmemory>${ness.build.jvmsize}</maxmemory>
           </configuration>
           <executions>
             <execution>
