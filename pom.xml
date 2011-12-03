@@ -33,6 +33,15 @@
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
 
+  <licenses>
+    <license>
+      <name>Apache 2</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+      <comments>A business-friendly OSS license</comments>
+    </license>
+  </licenses>
+
   <scm>
     <connection>scm:git:git://github.com/NessComputing/nesscomputing-base-pom.git</connection>
     <developerConnection>scm:git:git@github.com:NessComputing/nesscomputing-base-pom.git</developerConnection>
