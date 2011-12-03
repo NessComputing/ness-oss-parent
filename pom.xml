@@ -155,7 +155,8 @@
           <version>${ness.plugins.enforcer.version}</version>
           <executions>
             <execution>
-              <id>enforce-versions</id>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>enforce</goal>
               </goals>
@@ -201,8 +202,8 @@
           </configuration>
           <executions>
             <execution>
-              <id>default-analyze</id>
-              <phase>verify</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
@@ -380,8 +381,8 @@
           <version>1.0.3</version>
           <executions>
             <execution>
-              <id>default-verify</id>
-              <phase>verify</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -460,8 +461,8 @@
           </configuration>
           <executions>
             <execution>
-              <id>default-verify</id>
-              <phase>process-test-classes</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -475,8 +476,8 @@
           <version>2.3.3</version>
           <executions>
             <execution>
-              <id>default-verify</id>
-              <phase>verify</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -493,8 +494,8 @@
           </configuration>
           <executions>
             <execution>
-              <id>default-verify</id>
-              <phase>verify</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -528,7 +529,8 @@
           </configuration>
           <executions>
             <execution>
-              <phase>package</phase>
+              <id>default</id>
+              <phase>prepare-package</phase>
               <goals>
                 <goal>format</goal>
               </goals>
