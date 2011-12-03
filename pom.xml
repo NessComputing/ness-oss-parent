@@ -1,488 +1,488 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
-    
-    <parent>
-      <groupId>org.sonatype.oss</groupId>
-      <artifactId>oss-parent</artifactId>
-      <version>7</version>
-    </parent>
-    
-    <groupId>com.nesscomputing</groupId>
-    <artifactId>base</artifactId>
-    <packaging>pom</packaging>
-    <version>0.0.2-SNAPSHOT</version>
-    <name>base pom</name>
-    <description>This is the Base POM for Ness open source maven projects.</description>
-    <url>https://opensource.nesscomputing.com/</url>
+  <modelVersion>4.0.0</modelVersion>
 
-    <scm>
-        <connection>scm:git:git://github.com/NessComputing/nesscomputing-base-pom.git</connection>
-        <developerConnection>scm:git:git@github.com:NessComputing/nesscomputing-base-pom.git</developerConnection>
-    </scm>
-    <prerequisites>
-        <maven>3.0.3</maven>
-    </prerequisites>
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.build.targetJdk>1.6</project.build.targetJdk>
-    </properties>
+  <parent>
+    <groupId>org.sonatype.oss</groupId>
+    <artifactId>oss-parent</artifactId>
+    <version>7</version>
+  </parent>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
-                <plugin>
-                    <groupId>org.eclipse.m2e</groupId>
-                    <artifactId>lifecycle-mapping</artifactId>
-                    <version>1.0.0</version>
-                    <configuration>
-                        <lifecycleMappingMetadata>
-                            <pluginExecutions>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>
-                                            org.apache.maven.plugins
-                                        </groupId>
-                                        <artifactId>
-                                            maven-enforcer-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [1.0,)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>enforce</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore />
-                                    </action>
-                                </pluginExecution>
-                                <pluginExecution>
-                                    <pluginExecutionFilter>
-                                        <groupId>
-                                            com.ning.maven.plugins
-                                        </groupId>
-                                        <artifactId>
-                                            maven-dependency-versions-check-plugin
-                                        </artifactId>
-                                        <versionRange>
-                                            [2.0.2,)
-                                        </versionRange>
-                                        <goals>
-                                            <goal>check</goal>
-                                        </goals>
-                                    </pluginExecutionFilter>
-                                    <action>
-                                        <ignore />
-                                    </action>
-                                </pluginExecution>
-                            </pluginExecutions>
-                        </lifecycleMappingMetadata>
-                    </configuration>
-                </plugin>
+  <groupId>com.nesscomputing</groupId>
+  <artifactId>base</artifactId>
+  <packaging>pom</packaging>
+  <version>0.0.2-SNAPSHOT</version>
+  <name>base pom</name>
+  <description>This is the Base POM for Ness open source maven projects.</description>
+  <url>https://opensource.nesscomputing.com/</url>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-scm-plugin</artifactId>
-                    <version>1.6</version>
-                </plugin>
+  <scm>
+    <connection>scm:git:git://github.com/NessComputing/nesscomputing-base-pom.git</connection>
+    <developerConnection>scm:git:git@github.com:NessComputing/nesscomputing-base-pom.git</developerConnection>
+  </scm>
+  <prerequisites>
+    <maven>3.0.3</maven>
+  </prerequisites>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.build.targetJdk>1.6</project.build.targetJdk>
+  </properties>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-deploy-plugin</artifactId>
-                    <version>2.7</version>
-                </plugin>
+  <build>
+    <pluginManagement>
+      <plugins>
+        <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself.-->
+        <plugin>
+          <groupId>org.eclipse.m2e</groupId>
+          <artifactId>lifecycle-mapping</artifactId>
+          <version>1.0.0</version>
+          <configuration>
+            <lifecycleMappingMetadata>
+              <pluginExecutions>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      org.apache.maven.plugins
+                    </groupId>
+                    <artifactId>
+                      maven-enforcer-plugin
+                    </artifactId>
+                    <versionRange>
+                      [1.0,)
+                    </versionRange>
+                    <goals>
+                      <goal>enforce</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      com.ning.maven.plugins
+                    </groupId>
+                    <artifactId>
+                      maven-dependency-versions-check-plugin
+                    </artifactId>
+                    <versionRange>
+                      [2.0.2,)
+                    </versionRange>
+                    <goals>
+                      <goal>check</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+              </pluginExecutions>
+            </lifecycleMappingMetadata>
+          </configuration>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-clean-plugin</artifactId>
-                    <version>2.4.1</version>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-scm-plugin</artifactId>
+          <version>1.6</version>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-install-plugin</artifactId>
-                    <version>2.3.1</version>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.7</version>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-enforcer-plugin</artifactId>
-                    <version>1.0.1</version>
-                    <executions>
-                        <execution>
-                            <id>enforce-versions</id>
-                            <goals>
-                                <goal>enforce</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <rules>
-                            <bannedDependencies>
-                                <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
-                                <excludes combine.children="append">
-                                    <!-- clashes with commons-logging:commons-logging -->
-                                    <exclude>commons-logging:commons-logging-api</exclude>
-                                    <!-- clashes with cglib:cglib-nodep -->
-                                    <exclude>cglib:cglib</exclude>
-                                    <!-- commons-logging directs to log4j directly.  No need for slf4j -->
-                                    <exclude>org.slf4j:jcl-over-slf4j</exclude>
-                                    <!-- junit repackages hamcrest into its own jar, which is a big no-no. 
-                                         junit-dep fixes this problem, so use that instead please! -->
-                                    <exclude>junit:junit</exclude>
-                                    <!-- nothing from the old trumpet namespace -->
-                                    <exclude>io.trumpet.components:*</exclude>
-                                    <!-- nor can we let out any of our internal things -->
-                                    <exclude>ness.components:*</exclude>
-                                </excludes>
-                            </bannedDependencies>
-                            <requireMavenVersion>
-                                <version>3.0.3</version>
-                            </requireMavenVersion>
-                            <requireJavaVersion>
-                                <version>${project.build.targetJdk}</version>
-                            </requireJavaVersion>
-                        </rules>
-                    </configuration>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>2.4.1</version>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-dependency-plugin</artifactId>
-                    <version>2.3</version>
-                    <configuration>
-                        <failOnWarning>true</failOnWarning>
-                        <ignoreNonCompile>true</ignoreNonCompile>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>default-analyze</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>analyze-only</goal>
-                                <goal>analyze-duplicate</goal>
-                                <goal>analyze-dep-mgt</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.3.1</version>
+        </plugin>
 
-                <!-- Tweak the compiler to use more memory and use UTF-8 for the source code. -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <configuration>
-                        <source>${project.build.targetJdk}</source>
-                        <target>${project.build.targetJdk}</target>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <maxmem>1024m</maxmem>
-                    </configuration>
-                    
-                    <!-- Remove after we move to maven-compiler-plugin 2.4 -->
-                    <dependencies>
-                      <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-compiler-api</artifactId>
-                        <version>1.8.2</version>
-                        <exclusions>
-                          <exclusion>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-component-api</artifactId>
-                          </exclusion>
-                        </exclusions>
-                      </dependency>
-                      <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-compiler-manager</artifactId>
-                        <version>1.8.2</version>
-                        <exclusions>
-                          <exclusion>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-component-api</artifactId>
-                          </exclusion>
-                        </exclusions>
-                      </dependency>
-                      <dependency>
-                        <groupId>org.codehaus.plexus</groupId>
-                        <artifactId>plexus-compiler-javac</artifactId>
-                        <version>1.8.2</version>
-                        <scope>runtime</scope>
-                        <exclusions>
-                          <exclusion>
-                            <groupId>org.codehaus.plexus</groupId>
-                            <artifactId>plexus-component-api</artifactId>
-                          </exclusion>
-                        </exclusions>
-                      </dependency>
-                    </dependencies>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-enforcer-plugin</artifactId>
+          <version>1.0.1</version>
+          <executions>
+            <execution>
+              <id>enforce-versions</id>
+              <goals>
+                <goal>enforce</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <rules>
+              <bannedDependencies>
+                <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
+                <excludes combine.children="append">
+                  <!-- clashes with commons-logging:commons-logging -->
+                  <exclude>commons-logging:commons-logging-api</exclude>
+                  <!-- clashes with cglib:cglib-nodep -->
+                  <exclude>cglib:cglib</exclude>
+                  <!-- commons-logging directs to log4j directly.  No need for slf4j -->
+                  <exclude>org.slf4j:jcl-over-slf4j</exclude>
+                  <!-- junit repackages hamcrest into its own jar, which is a big no-no.
+                       junit-dep fixes this problem, so use that instead please! -->
+                  <exclude>junit:junit</exclude>
+                  <!-- nothing from the old trumpet namespace -->
+                  <exclude>io.trumpet.components:*</exclude>
+                  <!-- nor can we let out any of our internal things -->
+                  <exclude>ness.components:*</exclude>
+                </excludes>
+              </bannedDependencies>
+              <requireMavenVersion>
+                <version>3.0.3</version>
+              </requireMavenVersion>
+              <requireJavaVersion>
+                <version>${project.build.targetJdk}</version>
+              </requireJavaVersion>
+            </rules>
+          </configuration>
+        </plugin>
 
-                <!-- Resource plugins should always use UTF-8 -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.5</version>
-                    <configuration>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                    </configuration>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-dependency-plugin</artifactId>
+          <version>2.3</version>
+          <configuration>
+            <failOnWarning>true</failOnWarning>
+            <ignoreNonCompile>true</ignoreNonCompile>
+          </configuration>
+          <executions>
+            <execution>
+              <id>default-analyze</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>analyze-only</goal>
+                <goal>analyze-duplicate</goal>
+                <goal>analyze-dep-mgt</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
-                <!-- Make sure that we use the latest version of the assembly plugin. Also always use GNU tar mode. -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.2.2</version>
-                    <configuration>
-                        <!-- must be true for our jar-with-dependencies builds -->
-                        <appendAssemblyId>true</appendAssemblyId>
-                        <tarLongFileMode>gnu</tarLongFileMode>
-                    </configuration>
-                </plugin>
+        <!-- Tweak the compiler to use more memory and use UTF-8 for the source code. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>2.3.2</version>
+          <configuration>
+            <source>${project.build.targetJdk}</source>
+            <target>${project.build.targetJdk}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <maxmem>1024m</maxmem>
+          </configuration>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.10</version>
-                    <configuration>
-                        <systemPropertyVariables combine.children="append">
-                            <file.encoding>${project.build.sourceEncoding}</file.encoding>
-                            <sun.jnu.encoding>${project.build.sourceEncoding}</sun.jnu.encoding>
-                            <user.timezone>GMT</user.timezone>
-                            <java.awt.headless>true</java.awt.headless>
-                        </systemPropertyVariables>
-                    </configuration>
-                </plugin>
+          <!-- Remove after we move to maven-compiler-plugin 2.4 -->
+          <dependencies>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-api</artifactId>
+              <version>1.8.2</version>
+              <exclusions>
+                <exclusion>
+                  <groupId>org.codehaus.plexus</groupId>
+                  <artifactId>plexus-component-api</artifactId>
+                </exclusion>
+              </exclusions>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-manager</artifactId>
+              <version>1.8.2</version>
+              <exclusions>
+                <exclusion>
+                  <groupId>org.codehaus.plexus</groupId>
+                  <artifactId>plexus-component-api</artifactId>
+                </exclusion>
+              </exclusions>
+            </dependency>
+            <dependency>
+              <groupId>org.codehaus.plexus</groupId>
+              <artifactId>plexus-compiler-javac</artifactId>
+              <version>1.8.2</version>
+              <scope>runtime</scope>
+              <exclusions>
+                <exclusion>
+                  <groupId>org.codehaus.plexus</groupId>
+                  <artifactId>plexus-component-api</artifactId>
+                </exclusion>
+              </exclusions>
+            </dependency>
+          </dependencies>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-release-plugin</artifactId>
-                    <version>2.2.1</version>
-                    <configuration>
-                        <autoVersionSubmodules>true</autoVersionSubmodules>
-                    </configuration>
-                </plugin>
+        <!-- Resource plugins should always use UTF-8 -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>2.5</version>
+          <configuration>
+            <encoding>${project.build.sourceEncoding}</encoding>
+          </configuration>
+        </plugin>
 
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-javadoc-plugin</artifactId>
-                    <version>2.8</version>
-                    <configuration>
-                        <source>${project.build.targetJdk}</source>
-                        <target>${project.build.targetJdk}</target>
-                        <encoding>${project.build.sourceEncoding}</encoding>
-                        <maxmemory>1024m</maxmemory>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>attach-javadocs</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+        <!-- Make sure that we use the latest version of the assembly plugin. Also always use GNU tar mode. -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-assembly-plugin</artifactId>
+          <version>2.2.2</version>
+          <configuration>
+            <!-- must be true for our jar-with-dependencies builds -->
+            <appendAssemblyId>true</appendAssemblyId>
+            <tarLongFileMode>gnu</tarLongFileMode>
+          </configuration>
+        </plugin>
 
-                <!-- Always build a jar with the test classes -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.3.2</version>
-                    <executions>
-                        <execution>
-                            <id>attach-tests</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>test-jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <archive>
-                            <manifest>
-                                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
-                                <addClasspath>false</addClasspath>
-                            </manifest>
-                        </archive>
-                    </configuration>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.10</version>
+          <configuration>
+            <systemPropertyVariables combine.children="append">
+              <file.encoding>${project.build.sourceEncoding}</file.encoding>
+              <sun.jnu.encoding>${project.build.sourceEncoding}</sun.jnu.encoding>
+              <user.timezone>GMT</user.timezone>
+              <java.awt.headless>true</java.awt.headless>
+            </systemPropertyVariables>
+          </configuration>
+        </plugin>
 
-                <!-- bundle up source code into jars for both the main and the test sources -->
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>2.1.2</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>jar</goal>
-                                <goal>test-jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-release-plugin</artifactId>
+          <version>2.2.1</version>
+          <configuration>
+            <autoVersionSubmodules>true</autoVersionSubmodules>
+          </configuration>
+        </plugin>
 
-                <plugin>
-                    <groupId>com.ning.maven.plugins</groupId>
-                    <artifactId>maven-duplicate-finder-plugin</artifactId>
-                    <version>1.0.3</version>
-                    <executions>
-                        <execution>
-                            <id>default-verify</id>
-                            <phase>verify</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
-                        <exceptions combine.children="append">
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>commons-beanutils</groupId>
-                                        <artifactId>commons-beanutils</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>commons-beanutils</groupId>
-                                        <artifactId>commons-beanutils-core</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>commons-collections</groupId>
-                                        <artifactId>commons-collections</artifactId>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <classes>
-                                    <class>org.apache.commons.collections.ArrayStack</class>
-                                    <class>org.apache.commons.collections.Buffer</class>
-                                    <class>org.apache.commons.collections.BufferUnderflowException</class>
-                                    <class>org.apache.commons.collections.FastHashMap</class>
-                                </classes>
-                            </exception>
-                            <exception>
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>commons-beanutils</groupId>
-                                        <artifactId>commons-beanutils</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>commons-beanutils</groupId>
-                                        <artifactId>commons-beanutils-core</artifactId>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <packages>
-                                    <package>org.apache.commons.beanutils</package>
-                                </packages>
-                            </exception>
-                            <exception> 
-                                <conflictingDependencies>
-                                    <dependency>
-                                        <groupId>org.apache.activemq</groupId>
-                                        <artifactId>activemq-core</artifactId>
-                                    </dependency>
-                                    <dependency>
-                                        <groupId>org.apache.activemq.protobuf</groupId>
-                                        <artifactId>activemq-protobuf</artifactId>
-                                    </dependency>
-                                </conflictingDependencies>
-                                <packages>
-                                    <package>org.apache.activemq.protobuf</package>
-                                </packages>
-                            </exception>
-                        </exceptions>
-                        <ignoredResources combine.children="append">
-                            <!-- to be found in the jetty jars -->
-                            <ignoredResource>about\.html</ignoredResource>
-                            <!-- jersey-core, jersey-server -->
-                            <ignoredResource>META-INF/jersey-module-version</ignoredResource>
-                        </ignoredResources>
-                    </configuration>
-                </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-javadoc-plugin</artifactId>
+          <version>2.8</version>
+          <configuration>
+            <source>${project.build.targetJdk}</source>
+            <target>${project.build.targetJdk}</target>
+            <encoding>${project.build.sourceEncoding}</encoding>
+            <maxmemory>1024m</maxmemory>
+          </configuration>
+          <executions>
+            <execution>
+              <id>attach-javadocs</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
-                <plugin>
-                    <groupId>com.ning.maven.plugins</groupId>
-                    <artifactId>maven-dependency-versions-check-plugin</artifactId>
-                    <version>2.0.2</version>
-                    <configuration>
-                        <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
-                    </configuration>
-                    <executions>
-                        <execution>
-                            <id>default-verify</id>
-                            <phase>process-test-classes</phase>
-                            <goals>
-                                <goal>check</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                </plugin>
-            </plugins>
-        </pluginManagement>
+        <!-- Always build a jar with the test classes -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>2.3.2</version>
+          <executions>
+            <execution>
+              <id>attach-tests</id>
+              <phase>package</phase>
+              <goals>
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <archive>
+              <manifest>
+                <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                <addClasspath>false</addClasspath>
+              </manifest>
+            </archive>
+          </configuration>
+        </plugin>
 
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-enforcer-plugin</artifactId>
-            </plugin>
+        <!-- bundle up source code into jars for both the main and the test sources -->
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-source-plugin</artifactId>
+          <version>2.1.2</version>
+          <executions>
+            <execution>
+              <id>attach-sources</id>
+              <phase>package</phase>
+              <goals>
+                <goal>jar</goal>
+                <goal>test-jar</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-            </plugin>
+        <plugin>
+          <groupId>com.ning.maven.plugins</groupId>
+          <artifactId>maven-duplicate-finder-plugin</artifactId>
+          <version>1.0.3</version>
+          <executions>
+            <execution>
+              <id>default-verify</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
+            <exceptions combine.children="append">
+              <exception>
+                <conflictingDependencies>
+                  <dependency>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils-core</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>commons-collections</groupId>
+                    <artifactId>commons-collections</artifactId>
+                  </dependency>
+                </conflictingDependencies>
+                <classes>
+                  <class>org.apache.commons.collections.ArrayStack</class>
+                  <class>org.apache.commons.collections.Buffer</class>
+                  <class>org.apache.commons.collections.BufferUnderflowException</class>
+                  <class>org.apache.commons.collections.FastHashMap</class>
+                </classes>
+              </exception>
+              <exception>
+                <conflictingDependencies>
+                  <dependency>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>commons-beanutils</groupId>
+                    <artifactId>commons-beanutils-core</artifactId>
+                  </dependency>
+                </conflictingDependencies>
+                <packages>
+                  <package>org.apache.commons.beanutils</package>
+                </packages>
+              </exception>
+              <exception>
+                <conflictingDependencies>
+                  <dependency>
+                    <groupId>org.apache.activemq</groupId>
+                    <artifactId>activemq-core</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>org.apache.activemq.protobuf</groupId>
+                    <artifactId>activemq-protobuf</artifactId>
+                  </dependency>
+                </conflictingDependencies>
+                <packages>
+                  <package>org.apache.activemq.protobuf</package>
+                </packages>
+              </exception>
+            </exceptions>
+            <ignoredResources combine.children="append">
+              <!-- to be found in the jetty jars -->
+              <ignoredResource>about\.html</ignoredResource>
+              <!-- jersey-core, jersey-server -->
+              <ignoredResource>META-INF/jersey-module-version</ignoredResource>
+            </ignoredResources>
+          </configuration>
+        </plugin>
 
-            <plugin>
-                <groupId>com.ning.maven.plugins</groupId>
-                <artifactId>maven-dependency-versions-check-plugin</artifactId>
-            </plugin>
+        <plugin>
+          <groupId>com.ning.maven.plugins</groupId>
+          <artifactId>maven-dependency-versions-check-plugin</artifactId>
+          <version>2.0.2</version>
+          <configuration>
+            <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
+          </configuration>
+          <executions>
+            <execution>
+              <id>default-verify</id>
+              <phase>process-test-classes</phase>
+              <goals>
+                <goal>check</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
 
-            <plugin>
-                <groupId>com.ning.maven.plugins</groupId>
-                <artifactId>maven-duplicate-finder-plugin</artifactId>
-            </plugin>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-resources-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>com.ning.maven.plugins</groupId>
+        <artifactId>maven-dependency-versions-check-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>com.ning.maven.plugins</groupId>
+        <artifactId>maven-duplicate-finder-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-resources-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-            </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-assembly-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
   <profiles>
     <profile>
       <id>extended-verify</id>
@@ -533,12 +533,12 @@
             </executions>
           </plugin>
           <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-dependency-plugin</artifactId>
-              <configuration>
-                  <failOnWarning>true</failOnWarning>
-                  <failBuild>true</failBuild>
-              </configuration>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <configuration>
+              <failOnWarning>true</failOnWarning>
+              <failBuild>true</failBuild>
+            </configuration>
           </plugin>
         </plugins>
       </build>
