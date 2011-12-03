@@ -200,6 +200,10 @@
             <target>${project.build.targetJdk}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
             <maxmem>${ness.build.jvmsize}</maxmem>
+            <showWarnings>true</showWarnings>
+            <compilerArguments>
+              <Werror />
+            </compilerArguments>
           </configuration>
 
           <!-- Remove after we move to maven-compiler-plugin 2.4 -->
@@ -545,26 +549,4 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-    <profile>
-      <id>extended-verify</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-              <showWarnings>true</showWarnings>
-              <compilerArguments combine.children="append">
-                <Werror />
-              </compilerArguments>
-            </configuration>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
 </project>
