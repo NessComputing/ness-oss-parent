@@ -532,7 +532,7 @@
               <id>default</id>
               <phase>prepare-package</phase>
               <goals>
-                <goal>format</goal>
+                <goal>check</goal>
               </goals>
             </execution>
           </executions>
