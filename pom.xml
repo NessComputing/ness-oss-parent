@@ -42,9 +42,9 @@ limitations under the License.
   </licenses>
 
   <scm>
-    <connection>scm:git:git://github.com/NessComputing/nesscomputing-base-pom.git</connection>
-    <developerConnection>scm:git:git@github.com:NessComputing/nesscomputing-base-pom.git</developerConnection>
-    <url>http://github.com/NessComputing/nesscomputing-base-pom</url>
+    <connection>scm:git:git://github.com/NessComputing/ness-oss-parent.git</connection>
+    <developerConnection>scm:git:git@github.com:NessComputing/ness-oss-parent.git</developerConnection>
+    <url>http://github.com/NessComputing/ness-oss-parent</url>
   </scm>
 
   <properties>
