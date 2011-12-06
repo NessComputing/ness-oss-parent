@@ -309,7 +309,7 @@ limitations under the License.
           <artifactId>maven-release-plugin</artifactId>
           <version>2.2.1</version>
           <configuration>
-            <arguments>-Pcheck-build</arguments>
+            <arguments>-Pcheck-build,check-license-headers,sign-release</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
           </configuration>
         </plugin>
@@ -539,6 +539,12 @@ limitations under the License.
           </executions>
         </plugin>
       </plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.1</version>
+      </plugin>
     </pluginManagement>
 
     <plugins>
@@ -636,6 +642,32 @@ limitations under the License.
           <plugin>
             <groupId>com.mycila.maven-license-plugin</groupId>
             <artifactId>maven-license-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <id>sign-release</id>
+      <activation>
+        <property>
+          <name>sign-release</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
           </plugin>
         </plugins>
       </build>
