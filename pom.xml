@@ -47,6 +47,21 @@ limitations under the License.
     <url>http://github.com/NessComputing/ness-oss-parent</url>
   </scm>
 
+  <organization>
+    <name>Ness Computing, Inc.</name>
+    <url>http://www.likeness.com/</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>ness</id>
+      <name>Ness Computing Open Source Team</name>
+      <email>opensource@likeness.com</email>
+      <url>http://opensource.likeness.com/</url>
+      <timezone>-8</timezone>
+    </developer>
+  </developers> 
+
   <properties>
     <!-- see http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
