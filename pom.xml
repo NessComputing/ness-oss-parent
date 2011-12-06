@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-Copyright (C) 2011 Ness Computing, Inc.
+Copyright (C) 2011 Ness Computing, Inc. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -627,9 +627,8 @@ limitations under the License.
     <profile>
       <id>check-license-headers</id>
       <activation>
-        <activeByDefault>true</activeByDefault>
         <property>
-          <name>check-license-header</name>
+          <name>check-license-headers</name>
         </property>
       </activation>
       <build>
