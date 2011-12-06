@@ -311,6 +311,7 @@ limitations under the License.
           <configuration>
             <arguments>-Pcheck-build,check-license-headers,sign-release</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
+            <mavenExecutorId>forked-path</mavenExecutorId>
           </configuration>
         </plugin>
 
