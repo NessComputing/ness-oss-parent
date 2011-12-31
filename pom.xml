@@ -324,7 +324,7 @@ limitations under the License.
           <artifactId>maven-release-plugin</artifactId>
           <version>2.2.1</version>
           <configuration>
-            <arguments>-Pcheck-build,check-license-headers,sign-release</arguments>
+            <arguments>-Pbuild-javadoc,check-build,check-license-headers,sign-release</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
           </configuration>
@@ -603,6 +603,24 @@ limitations under the License.
   </build>
 
   <profiles>
+    <profile>
+      <id>build-javadoc</id>
+      <activation>
+        <property>
+          <name>build-javadoc</name>
+        </property>
+      </activation>
+      <build>
+        <plugins>
+          <!-- oss requires a javadoc jar. Build one when releasing. -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
     <profile>
       <id>check-build</id>
       <activation>
