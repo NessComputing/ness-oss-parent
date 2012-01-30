@@ -24,7 +24,7 @@ limitations under the License.
     <version>7</version>
   </parent>
 
-  <groupId>com.likeness</groupId>
+  <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
   <version>3-SNAPSHOT</version>
@@ -49,14 +49,14 @@ limitations under the License.
 
   <organization>
     <name>Ness Computing, Inc.</name>
-    <url>http://www.likeness.com/</url>
+    <url>http://www.nesscomputing.com/</url>
   </organization>
 
   <developers>
     <developer>
       <id>ness</id>
       <name>Ness Computing Open Source Team</name>
-      <email>opensource@likeness.com</email>
+      <email>opensource@nesscomputing.com</email>
       <url>http://opensource.nesscomputing.com/</url>
       <timezone>-8</timezone>
     </developer>
