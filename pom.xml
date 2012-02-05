@@ -191,10 +191,14 @@ limitations under the License.
                   <!-- junit repackages hamcrest into its own jar, which is a big no-no.
                        junit-dep fixes this problem, so use that instead please! -->
                   <exclude>junit:junit</exclude>
+                  <!-- completely and utterly broken -->
+                  <exclude>org.weakref:jmxutils:(,1.11]</exclude>
                   <!-- nothing from the old trumpet namespace -->
                   <exclude>io.trumpet.components:*</exclude>
                   <!-- nor can we let out any of our internal things -->
                   <exclude>ness.components:*</exclude>
+                  <!-- moved on to com.nesscomputing.* -->
+                  <exclude>com.likeness.components:*</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
