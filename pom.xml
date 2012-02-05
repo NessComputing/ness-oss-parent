@@ -301,7 +301,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-assembly-plugin</artifactId>
-          <version>2.2.2</version>
+          <version>2.3</version>
           <configuration>
             <!-- must be true for our jar-with-dependencies builds -->
             <appendAssemblyId>true</appendAssemblyId>
@@ -312,7 +312,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.11</version>
+          <version>2.12</version>
           <configuration>
             <systemPropertyVariables combine.children="append">
               <file.encoding>${project.build.sourceEncoding}</file.encoding>
@@ -326,7 +326,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <version>2.2.1</version>
+          <version>2.2.2</version>
           <configuration>
             <arguments>-Pbuild-javadoc,check-build,check-license-headers,sign-release</arguments>
             <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -337,7 +337,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-javadoc-plugin</artifactId>
-          <version>2.8</version>
+          <version>2.8.1</version>
           <configuration>
             <source>${project.build.targetJdk}</source>
             <target>${project.build.targetJdk}</target>
@@ -359,7 +359,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
-          <version>2.3.2</version>
+          <version>2.4</version>
           <executions>
             <execution>
               <id>attach-tests</id>
@@ -494,7 +494,7 @@ limitations under the License.
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
-          <version>2.3.3</version>
+          <version>2.4.0</version>
           <executions>
             <execution>
               <id>default</id>
