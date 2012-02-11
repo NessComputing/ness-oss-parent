@@ -328,7 +328,8 @@ limitations under the License.
           <artifactId>maven-release-plugin</artifactId>
           <version>2.2.2</version>
           <configuration>
-            <releaseProfiles>build-javadoc,check-build,check-license-headers,sign-release</releaseProfiles>
+            <releaseProfiles>sonatype-oss-release,build-javadoc,check-build,check-license-headers,sign-release</releaseProfiles>
+            <arguments/>
             <autoVersionSubmodules>true</autoVersionSubmodules>
             <mavenExecutorId>forked-path</mavenExecutorId>
           </configuration>
