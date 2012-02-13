@@ -74,6 +74,9 @@ limitations under the License.
 
     <!-- the current "best" version of maven -->
     <ness.maven.version>3.0.3</ness.maven.version>
+    <!-- In Multimodule builds, override this to point at the parent directory for e.g. the license resources. -->
+    <!-- See http://stackoverflow.com/questions/6061537/usage-of-maven-basedir-in-multi-module-setup -->
+    <ness.root.dir>${project.basedir}</ness.root.dir>
   </properties>
 
   <prerequisites>
@@ -531,7 +534,7 @@ limitations under the License.
           <version>1.9.0</version>
           <inherited>true</inherited>
           <configuration>
-            <header>${basedir}/src/ness/LICENSE-HEADER.txt</header>
+            <header>${ness.root.dir}/src/ness/LICENSE-HEADER.txt</header>
             <aggregate>true</aggregate>
             <failIfMissing>true</failIfMissing>
             <encoding>${project.build.sourceEncoding}</encoding>
