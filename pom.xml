@@ -327,6 +327,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
+          <!-- Do NOT upgrade to 2.2.2, fails with GPG plugin and maven 3.0.3 due to MNG-5224 -->
           <version>2.2.1</version>
           <configuration>
             <releaseProfiles>build-javadoc,check-build,check-license-headers,sign-release</releaseProfiles>
