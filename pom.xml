@@ -312,7 +312,8 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.12</version>
+          <!-- Do NOT upgrade to 2.12, it does not work with the security manager -->
+          <version>2.11</version>
           <configuration>
             <systemPropertyVariables combine.children="append">
               <file.encoding>${project.build.sourceEncoding}</file.encoding>
@@ -598,6 +599,9 @@ limitations under the License.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
+        <configuration>
+          <argLine>-Djava.security.manager=com.nesscomputing.testing.lessio.LessIOSecurityManager</argLine>
+        </configuration>
       </plugin>
 
       <plugin>
@@ -738,8 +742,27 @@ limitations under the License.
         <artifactId>hamcrest-library</artifactId>
         <version>1.2.1</version>
       </dependency>
+      <dependency>
+        <groupId>org.objenesis</groupId>
+        <artifactId>objenesis</artifactId>
+        <version>1.2</version>
+      </dependency>
+      <dependency>
+        <groupId>com.nesscomputing.testing</groupId>
+        <artifactId>kawala-lessio</artifactId>
+        <version>1.0.0</version>
+      </dependency>
     </dependencies>
   </dependencyManagement>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.nesscomputing.testing</groupId>
+      <artifactId>kawala-lessio</artifactId>
+      <scope>test</scope>
+      <optional>true</optional>
+    </dependency>
+  </dependencies>
 
   <profiles>
     <profile>
