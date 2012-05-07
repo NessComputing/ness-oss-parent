@@ -73,7 +73,7 @@ limitations under the License.
     <ness.plugins.dependency-versions-check.version>2.0.2</ness.plugins.dependency-versions-check.version>
 
     <!-- the current "best" version of maven -->
-    <ness.maven.version>3.0.3</ness.maven.version>
+    <ness.maven.version>3.0.4</ness.maven.version>
     <!-- In Multimodule builds, override this to point at the parent directory for e.g. the license resources. -->
     <!-- See http://stackoverflow.com/questions/6061537/usage-of-maven-basedir-in-multi-module-setup -->
     <ness.root.dir>${project.basedir}</ness.root.dir>
@@ -330,8 +330,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-release-plugin</artifactId>
-          <!-- Do NOT upgrade to 2.2.2, fails with GPG plugin and maven 3.0.3 due to MNG-5224 -->
-          <version>2.2.1</version>
+          <version>2.2.2</version>
           <configuration>
             <releaseProfiles>build-javadoc,check-build,check-license-headers,sign-release</releaseProfiles>
             <autoVersionSubmodules>true</autoVersionSubmodules>
@@ -570,6 +569,12 @@ limitations under the License.
           <configuration>
             <useAgent>true</useAgent>
           </configuration>
+        </plugin>
+
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.0</version>
         </plugin>
       </plugins>
     </pluginManagement>
