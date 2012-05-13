@@ -879,5 +879,84 @@ limitations under the License.
         </plugins>
       </build>
     </profile>
+
+
+    <!-- ======================================================================== -->
+    <!-- =                                                                      = -->
+    <!-- = Galaxy profile. Builds a tarball from a web application that is a    = -->
+    <!-- = deployable unit.                                                     = -->
+    <!-- =                                                                      = -->
+    <!-- ======================================================================== -->
+
+    <profile>
+      <id>build-galaxy</id>
+      <activation>
+        <file>
+          <exists>.build-galaxy</exists>
+        </file>
+      </activation>
+      <properties>
+        <galaxy.webroot>ROOT</galaxy.webroot>
+        <galaxy.skip.deploy>false</galaxy.skip.deploy>
+        <galaxy.scripts.version>1.0.0</galaxy.scripts.version>
+        <galaxy.packaging>standalone</galaxy.packaging>
+        <galaxy.launcher>${galaxy.packaging}</galaxy.launcher>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <artifactId>maven-assembly-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>assemble-app</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>single</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <!-- must be false for galaxy builds, otherwise the jars will
+                   have an extra qualifier -->
+              <appendAssemblyId>false</appendAssemblyId>
+              <descriptorRefs>
+                <descriptorRef>${galaxy.packaging}-assembly</descriptorRef>
+              </descriptorRefs>
+            </configuration>
+            <dependencies>
+              <!-- This is correct. The assemblies live now inside ness-galaxy. -->
+              <dependency>
+                <groupId>com.nesscomputing.components</groupId>
+                <artifactId>ness-galaxy</artifactId>
+                <version>${galaxy.scripts.version}</version>
+              </dependency>
+            </dependencies>
+          </plugin>
+
+          <!-- Turn off regular deployment when building a galaxy tarball -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <configuration>
+                  <skip>${galaxy.skip.deploy}</skip>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+      <dependencies>
+        <dependency>
+          <groupId>com.nesscomputing.components</groupId>
+          <artifactId>ness-galaxy</artifactId>
+          <version>${galaxy.scripts.version}</version>
+          <type>tar.gz</type>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+    </profile>
   </profiles>
 </project>
