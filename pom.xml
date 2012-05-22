@@ -60,7 +60,7 @@ limitations under the License.
       <url>http://opensource.nesscomputing.com/</url>
       <timezone>-8</timezone>
     </developer>
-  </developers> 
+  </developers>
 
   <properties>
     <!-- see http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
@@ -761,7 +761,7 @@ limitations under the License.
       <dependency>
         <groupId>com.nesscomputing.testing</groupId>
         <artifactId>kawala-lessio</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
