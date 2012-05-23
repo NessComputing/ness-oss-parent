@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>10</version>
+  <version>11-SNAPSHOT</version>
   <name>ness-oss-parent</name>
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
