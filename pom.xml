@@ -60,7 +60,7 @@ limitations under the License.
       <url>http://opensource.nesscomputing.com/</url>
       <timezone>-8</timezone>
     </developer>
-  </developers> 
+  </developers>
 
   <properties>
     <!-- see http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
@@ -728,8 +728,8 @@ limitations under the License.
       <!-- Java APIs -->
       <dependency>
         <groupId>javax.servlet</groupId>
-        <artifactId>servlet-api</artifactId>
-        <version>2.5</version>
+        <artifactId>javax.servlet-api</artifactId>
+        <version>3.0.1</version>
       </dependency>
 
       <!-- Testing -->
@@ -761,7 +761,7 @@ limitations under the License.
       <dependency>
         <groupId>com.nesscomputing.testing</groupId>
         <artifactId>kawala-lessio</artifactId>
-        <version>1.0.0</version>
+        <version>2.0.0-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
