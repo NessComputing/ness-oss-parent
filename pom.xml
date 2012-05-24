@@ -106,7 +106,7 @@ limitations under the License.
                       maven-enforcer-plugin
                     </artifactId>
                     <versionRange>
-                      [${ness.plugins.enforcer.version},)
+                      [0,)
                     </versionRange>
                     <goals>
                       <goal>enforce</goal>
@@ -125,7 +125,7 @@ limitations under the License.
                       maven-dependency-versions-check-plugin
                     </artifactId>
                     <versionRange>
-                      [${ness.plugins.dependency-versions-check.version},)
+                      [0,)
                     </versionRange>
                     <goals>
                       <goal>check</goal>
