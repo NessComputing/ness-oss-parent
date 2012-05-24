@@ -176,7 +176,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>enforce</goal>
               </goals>
@@ -227,7 +227,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
@@ -408,7 +408,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -488,7 +488,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -503,7 +503,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -521,7 +521,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -556,7 +556,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -797,7 +797,7 @@ limitations under the License.
     <profile>
       <id>check-build</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
+        <activeByDefault>true</activeByDefault>
         <property>
           <name>check-build</name>
         </property>
