@@ -68,10 +68,6 @@ limitations under the License.
     <project.build.targetJdk>1.6</project.build.targetJdk>
     <ness.build.jvmsize>1024m</ness.build.jvmsize>
 
-    <!-- used in the lifecycle mapping and pluginMgt section. Keep in sync. -->
-    <ness.plugins.enforcer.version>1.0.1</ness.plugins.enforcer.version>
-    <ness.plugins.dependency-versions-check.version>2.0.2</ness.plugins.dependency-versions-check.version>
-
     <!-- the current "best" version of maven -->
     <ness.maven.version>3.0.4</ness.maven.version>
     <!-- In Multimodule builds, override this to point at the parent directory for e.g. the license resources. -->
@@ -90,6 +86,7 @@ limitations under the License.
       <plugins>
 
         <!--This plugin's configuration is used to store Eclipse m2e settings only. It has no influence on the Maven build itself. -->
+        <!-- The plugin versions in here are pure "range", don't bother syncing them to the actual plugins. -->
         <plugin>
           <groupId>org.eclipse.m2e</groupId>
           <artifactId>lifecycle-mapping</artifactId>
@@ -172,7 +169,7 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-enforcer-plugin</artifactId>
-          <version>${ness.plugins.enforcer.version}</version>
+          <version>1.0.1</version>
           <executions>
             <execution>
               <id>default</id>
@@ -481,7 +478,7 @@ limitations under the License.
         <plugin>
           <groupId>com.ning.maven.plugins</groupId>
           <artifactId>maven-dependency-versions-check-plugin</artifactId>
-          <version>${ness.plugins.dependency-versions-check.version}</version>
+          <version>2.0.2</version>
           <configuration>
             <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
           </configuration>
