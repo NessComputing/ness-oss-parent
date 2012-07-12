@@ -372,6 +372,7 @@ limitations under the License.
             </execution>
           </executions>
           <configuration>
+            <skipIfEmpty>true</skipIfEmpty>
             <archive>
               <manifest>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
