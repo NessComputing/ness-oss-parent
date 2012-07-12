@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>12-SNAPSHOT</version>
+  <version>14-SNAPSHOT</version>
   <name>ness-oss-parent</name>
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
@@ -173,7 +173,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>enforce</goal>
               </goals>
@@ -224,7 +224,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
@@ -405,7 +405,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -485,7 +485,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -500,7 +500,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -518,7 +518,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -553,7 +553,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>prepare-package</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -794,7 +794,7 @@ limitations under the License.
     <profile>
       <id>check-build</id>
       <activation>
-        <activeByDefault>false</activeByDefault>
+        <activeByDefault>true</activeByDefault>
         <property>
           <name>check-build</name>
         </property>
