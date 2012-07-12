@@ -896,9 +896,10 @@ limitations under the License.
       <properties>
         <galaxy.webroot>ROOT</galaxy.webroot>
         <galaxy.skip.deploy>false</galaxy.skip.deploy>
-        <galaxy.scripts.version>1.0.0</galaxy.scripts.version>
+        <galaxy.scripts.version>1.1.0</galaxy.scripts.version>
         <galaxy.packaging>standalone</galaxy.packaging>
         <galaxy.launcher>${galaxy.packaging}</galaxy.launcher>
+        <galaxy.jvm>1.6.0</galaxy.jvm>
       </properties>
       <build>
         <plugins>
