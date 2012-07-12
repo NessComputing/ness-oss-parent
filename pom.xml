@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>13-SNAPSHOT</version>
+  <version>12-SNAPSHOT</version>
   <name>ness-oss-parent</name>
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
@@ -372,7 +372,6 @@ limitations under the License.
             </execution>
           </executions>
           <configuration>
-            <skipIfEmpty>true</skipIfEmpty>
             <archive>
               <manifest>
                 <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
@@ -759,7 +758,7 @@ limitations under the License.
       <dependency>
         <groupId>com.nesscomputing.testing</groupId>
         <artifactId>kawala-lessio</artifactId>
-        <version>2.0.1</version>
+        <version>2.0.0</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -896,9 +895,10 @@ limitations under the License.
       <properties>
         <galaxy.webroot>ROOT</galaxy.webroot>
         <galaxy.skip.deploy>false</galaxy.skip.deploy>
-        <galaxy.scripts.version>1.0.0</galaxy.scripts.version>
+        <galaxy.scripts.version>1.1.0-SNAPSHOT</galaxy.scripts.version>
         <galaxy.packaging>standalone</galaxy.packaging>
         <galaxy.launcher>${galaxy.packaging}</galaxy.launcher>
+        <galaxy.jvm>1.6.0</galaxy.jvm>
       </properties>
       <build>
         <plugins>
