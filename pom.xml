@@ -132,6 +132,25 @@ limitations under the License.
                     <ignore />
                   </action>
                 </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>
+                      com.likeness.mojo
+                    </groupId>
+                    <artifactId>
+                      maven-numbers-plugin
+                    </artifactId>
+                    <versionRange>
+                      [0,)
+                    </versionRange>
+                    <goals>
+                      <goal>get</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
               </pluginExecutions>
             </lifecycleMappingMetadata>
           </configuration>
@@ -238,55 +257,17 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-compiler-plugin</artifactId>
-          <version>2.3.2</version>
+          <version>2.5.1</version>
           <configuration>
             <source>${project.build.targetJdk}</source>
             <target>${project.build.targetJdk}</target>
             <encoding>${project.build.sourceEncoding}</encoding>
             <maxmem>${ness.build.jvmsize}</maxmem>
             <showWarnings>true</showWarnings>
-            <compilerArguments>
+            <compilerArguments combine.children="append">
               <Werror />
             </compilerArguments>
           </configuration>
-
-          <!-- Remove after we move to maven-compiler-plugin 2.4 -->
-          <dependencies>
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-compiler-api</artifactId>
-              <version>1.8.2</version>
-              <exclusions>
-                <exclusion>
-                  <groupId>org.codehaus.plexus</groupId>
-                  <artifactId>plexus-component-api</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-compiler-manager</artifactId>
-              <version>1.8.2</version>
-              <exclusions>
-                <exclusion>
-                  <groupId>org.codehaus.plexus</groupId>
-                  <artifactId>plexus-component-api</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-            <dependency>
-              <groupId>org.codehaus.plexus</groupId>
-              <artifactId>plexus-compiler-javac</artifactId>
-              <version>1.8.2</version>
-              <scope>runtime</scope>
-              <exclusions>
-                <exclusion>
-                  <groupId>org.codehaus.plexus</groupId>
-                  <artifactId>plexus-component-api</artifactId>
-                </exclusion>
-              </exclusions>
-            </dependency>
-          </dependencies>
         </plugin>
 
         <!-- Resource plugins should always use UTF-8 -->
@@ -317,6 +298,7 @@ limitations under the License.
           <!-- Do NOT upgrade to 2.12, it does not work with the security manager -->
           <version>2.11</version>
           <configuration>
+            <argLine>-Djava.security.manager=com.nesscomputing.testing.lessio.LessIOSecurityManager</argLine>
             <systemPropertyVariables combine.children="append">
               <file.encoding>${project.build.sourceEncoding}</file.encoding>
               <sun.jnu.encoding>${project.build.sourceEncoding}</sun.jnu.encoding>
@@ -413,6 +395,7 @@ limitations under the License.
             </execution>
           </executions>
           <configuration>
+            <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
             <exceptions combine.children="append">
               <exception>
                 <conflictingDependencies>
@@ -466,6 +449,25 @@ limitations under the License.
                   <package>org.apache.activemq.protobuf</package>
                 </packages>
               </exception>
+              <exception>
+                <conflictingDependencies>
+                  <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-core</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-client</artifactId>
+                  </dependency>
+                  <dependency>
+                    <groupId>com.sun.jersey</groupId>
+                    <artifactId>jersey-server</artifactId>
+                  </dependency>
+                </conflictingDependencies>
+                <resources>
+                  <resource>META-INF/jersey-module-version</resource>
+                </resources>
+              </exception>
             </exceptions>
             <ignoredResources combine.children="append">
               <!-- to be found in the jetty jars -->
@@ -482,6 +484,7 @@ limitations under the License.
           <version>2.0.2</version>
           <configuration>
             <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
+            <failOnWarning>true</failOnWarning>
           </configuration>
           <executions>
             <execution>
@@ -498,6 +501,11 @@ limitations under the License.
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>findbugs-maven-plugin</artifactId>
           <version>2.4.0</version>
+          <configuration>
+            <enable>true</enable>
+            <jvmargs>-Xmx${ness.build.jvmsize}</jvmargs>
+            <failOnError>true</failOnError>
+          </configuration>
           <executions>
             <execution>
               <id>default</id>
@@ -512,9 +520,27 @@ limitations under the License.
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-pmd-plugin</artifactId>
-          <version>2.6</version>
+          <version>2.7.1</version>
           <configuration>
             <targetJdk>${project.build.targetJdk}</targetJdk>
+            <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
+            <minimumTokens>100</minimumTokens>
+            <excludes>
+              <exclude>**/*Bean.java</exclude>
+              <exclude>**/generated/*.java</exclude>
+            </excludes>
+            <excludeRoots>
+              <excludeRoot>target/generated-sources/stubs</excludeRoot>
+            </excludeRoots>
+            <rulesets>
+              <ruleset>/rulesets/basic-jsp.xml</ruleset>
+              <ruleset>/rulesets/basic.xml</ruleset>
+              <ruleset>/rulesets/clone.xml</ruleset>
+              <ruleset>/rulesets/finalizers.xml</ruleset>
+              <ruleset>/rulesets/imports.xml</ruleset>
+              <ruleset>/rulesets/junit.xml</ruleset>
+              <ruleset>/rulesets/logging-java.xml</ruleset>
+            </rulesets>
           </configuration>
           <executions>
             <execution>
@@ -608,9 +634,6 @@ limitations under the License.
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <argLine>-Djava.security.manager=com.nesscomputing.testing.lessio.LessIOSecurityManager</argLine>
-        </configuration>
       </plugin>
 
       <plugin>
@@ -895,10 +918,20 @@ limitations under the License.
       </activation>
       <properties>
         <galaxy.webroot>ROOT</galaxy.webroot>
+
+        <!-- Suppresses the deployment of the normal maven artifacts when set to true. -->
         <galaxy.skip.deploy>false</galaxy.skip.deploy>
+
+        <!-- Version of the ness-galaxy component. Can be overridden to select a newer version. -->
         <galaxy.scripts.version>1.1.0</galaxy.scripts.version>
+
+        <!-- Selects the assembly for creating the tarball. -->
         <galaxy.packaging>standalone</galaxy.packaging>
+
+        <!-- selects the launcher for the tarball. Defaults to the launcher matching the assembly. -->
         <galaxy.launcher>${galaxy.packaging}</galaxy.launcher>
+
+        <!-- Default JDK to use for the tarball. -->
         <galaxy.jvm>1.6.0</galaxy.jvm>
       </properties>
       <build>
