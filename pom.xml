@@ -554,6 +554,20 @@ limitations under the License.
         </plugin>
 
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-shade-plugin</artifactId>
+          <version>1.7.1</version>
+          <executions>
+            <execution>
+              <phase>package</phase>
+              <goals>
+                <goal>shade</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+
+        <plugin>
           <groupId>com.mycila.maven-license-plugin</groupId>
           <artifactId>maven-license-plugin</artifactId>
           <version>1.9.0</version>
@@ -994,6 +1008,58 @@ limitations under the License.
           <scope>provided</scope>
         </dependency>
       </dependencies>
+    </profile>
+
+    <!-- ======================================================================== -->
+    <!-- =                                                                      = -->
+    <!-- = Solo profile. Builds an executable jar from a project.               = -->
+    <!-- =                                                                      = -->
+    <!-- ======================================================================== -->
+
+    <profile>
+      <id>build-solo</id>
+      <activation>
+        <file>
+          <exists>.build-solo</exists>
+        </file>
+      </activation>
+      <properties>
+        <!-- Suppresses the deployment of the normal maven artifacts when set to true. -->
+        <ness.solo.skip.deploy>false</ness.solo.skip.deploy>
+      </properties>
+
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-shade-plugin</artifactId>
+            <configuration>
+              <finalName>${ness.build.name}-solo</finalName>
+              <shadedArtifactAttached>true</shadedArtifactAttached>
+              <shadedClassifierName>solo</shadedClassifierName>
+              <transformers>
+                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                  <mainClass>${ness.solo.mainclass}</mainClass>
+                </transformer>
+              </transformers>
+            </configuration>
+          </plugin>
+
+          <!-- Turn off regular deployment when building a solo jar -->
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <configuration>
+                  <skip>${ness.solo.skip.deploy}</skip>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
     </profile>
   </profiles>
 </project>
