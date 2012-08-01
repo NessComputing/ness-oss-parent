@@ -1034,7 +1034,7 @@ limitations under the License.
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
             <configuration>
-              <finalName>${ness.build.name}-solo</finalName>
+              <finalName>${build.name}-solo</finalName>
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedClassifierName>solo</shadedClassifierName>
               <transformers>
