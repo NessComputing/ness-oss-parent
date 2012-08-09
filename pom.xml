@@ -473,6 +473,9 @@ limitations under the License.
               <ignoredResource>about\.html</ignoredResource>
               <!-- jersey-core, jersey-server -->
               <ignoredResource>META-INF/jersey-module-version</ignoredResource>
+              <!-- various jars, e.g. qpid -->
+              <ignoredResource>META-INF/README\.txt</ignoredResource>
+              <ignoredResource>META-INF/README</ignoredResource>
             </ignoredResources>
           </configuration>
         </plugin>
