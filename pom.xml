@@ -1034,7 +1034,6 @@ limitations under the License.
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
             <configuration>
-              <finalName>${project.artifactId}-${project.version}-solo</finalName>
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedClassifierName>solo</shadedClassifierName>
               <transformers>
