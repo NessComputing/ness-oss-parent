@@ -219,12 +219,18 @@ limitations under the License.
                   <exclude>junit:junit</exclude>
                   <!-- completely and utterly broken -->
                   <exclude>org.weakref:jmxutils:(,1.11]</exclude>
+                  <!-- only the jsr305 jar is allowed, for @SuppressWarnings use our own custom jar -->
+                  <exclude>com.google.code.findbugs:annotations</exclude>
                   <!-- nothing from the old trumpet namespace -->
                   <exclude>io.trumpet.components:*</exclude>
                   <!-- nor can we let out any of our internal things -->
                   <exclude>ness.components:*</exclude>
                   <!-- moved on to com.nesscomputing.* -->
                   <exclude>com.likeness.components:*</exclude>
+                  <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
+                  <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
+                  <!-- Logging is messed up in all older versions. -->
+                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.0.2)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -480,6 +486,14 @@ limitations under the License.
               <ignoredResource>about\.html</ignoredResource>
               <!-- jersey-core, jersey-server -->
               <ignoredResource>META-INF/jersey-module-version</ignoredResource>
+              <ignoredResource>META-INF/README\.txt</ignoredResource>
+              <ignoredResource>META-INF/RELEASE-NOTES\.txt</ignoredResource>
+              <ignoredResource>META-INF/eclipse\.inf</ignoredResource>
+              <ignoredResource>META-INF/ECLIPSEF\.RSA</ignoredResource>
+              <ignoredResource>META-INF/ECLIPSEF\.SF</ignoredResource>
+              <ignoredResource>about_files/LICENSE_ASL20\.txt</ignoredResource>
+              <ignoredResource>about_files/LICENSE_CDDL\.txt</ignoredResource>
+              <ignoredResource>plugin\.properties</ignoredResource>
             </ignoredResources>
           </configuration>
         </plugin>
