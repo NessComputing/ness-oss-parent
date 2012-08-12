@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>16-SNAPSHOT</version>
+  <version>18-SNAPSHOT</version>
   <name>ness-oss-parent</name>
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
@@ -74,6 +74,9 @@ limitations under the License.
     <!-- In Multimodule builds, override this to point at the parent directory for e.g. the license resources. -->
     <!-- See http://stackoverflow.com/questions/6061537/usage-of-maven-basedir-in-multi-module-setup -->
     <ness.root.dir>${project.basedir}</ness.root.dir>
+
+    <!-- -Dness.skip.check-build=true on the command line turns off the various build checkers. -->
+    <ness.skip.check-build>false</ness.skip.check-build>
 
     <ness.dep.guice.version>3.0</ness.dep.guice.version>
   </properties>
@@ -200,6 +203,7 @@ limitations under the License.
             </execution>
           </executions>
           <configuration>
+            <skip>${ness.skip.check-build}</skip>
             <rules>
               <bannedDependencies>
                 <!-- Now here is an arcane trick. See http://www.sonatype.com/people/2007/06/how-to-merge-sub-items-from-parent-pom-to-child-pom-in-a-maven-plugin-configuration-2/ for details... -->
@@ -215,12 +219,18 @@ limitations under the License.
                   <exclude>junit:junit</exclude>
                   <!-- completely and utterly broken -->
                   <exclude>org.weakref:jmxutils:(,1.11]</exclude>
+                  <!-- only the jsr305 jar is allowed, for @SuppressWarnings use our own custom jar -->
+                  <exclude>com.google.code.findbugs:annotations</exclude>
                   <!-- nothing from the old trumpet namespace -->
                   <exclude>io.trumpet.components:*</exclude>
                   <!-- nor can we let out any of our internal things -->
                   <exclude>ness.components:*</exclude>
                   <!-- moved on to com.nesscomputing.* -->
                   <exclude>com.likeness.components:*</exclude>
+                  <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
+                  <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
+                  <!-- Logging is messed up in all older versions. -->
+                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.0.2)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -238,6 +248,7 @@ limitations under the License.
           <artifactId>maven-dependency-plugin</artifactId>
           <version>2.5</version>
           <configuration>
+            <skip>${ness.skip.check-build}</skip>
             <failOnWarning>true</failOnWarning>
             <ignoreNonCompile>true</ignoreNonCompile>
           </configuration>
@@ -313,7 +324,7 @@ limitations under the License.
           <artifactId>maven-release-plugin</artifactId>
           <version>2.3.2</version>
           <configuration>
-            <releaseProfiles>build-javadoc,check-build,check-license-headers,sign-release</releaseProfiles>
+            <releaseProfiles>build-javadoc,check-license-headers,sign-release</releaseProfiles>
             <autoVersionSubmodules>true</autoVersionSubmodules>
           </configuration>
         </plugin>
@@ -395,6 +406,7 @@ limitations under the License.
             </execution>
           </executions>
           <configuration>
+            <skip>${ness.skip.check-build}</skip>
             <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
             <exceptions combine.children="append">
               <exception>
@@ -474,9 +486,14 @@ limitations under the License.
               <ignoredResource>about\.html</ignoredResource>
               <!-- jersey-core, jersey-server -->
               <ignoredResource>META-INF/jersey-module-version</ignoredResource>
-              <!-- various jars, e.g. qpid -->
               <ignoredResource>META-INF/README\.txt</ignoredResource>
-              <ignoredResource>META-INF/README</ignoredResource>
+              <ignoredResource>META-INF/RELEASE-NOTES\.txt</ignoredResource>
+              <ignoredResource>META-INF/eclipse\.inf</ignoredResource>
+              <ignoredResource>META-INF/ECLIPSEF\.RSA</ignoredResource>
+              <ignoredResource>META-INF/ECLIPSEF\.SF</ignoredResource>
+              <ignoredResource>about_files/LICENSE_ASL20\.txt</ignoredResource>
+              <ignoredResource>about_files/LICENSE_CDDL\.txt</ignoredResource>
+              <ignoredResource>plugin\.properties</ignoredResource>
             </ignoredResources>
           </configuration>
         </plugin>
@@ -486,6 +503,7 @@ limitations under the License.
           <artifactId>maven-dependency-versions-check-plugin</artifactId>
           <version>2.0.2</version>
           <configuration>
+            <skip>${ness.skip.check-build}</skip>
             <failBuildInCaseOfConflict>true</failBuildInCaseOfConflict>
             <failOnWarning>true</failOnWarning>
           </configuration>
@@ -505,7 +523,7 @@ limitations under the License.
           <artifactId>findbugs-maven-plugin</artifactId>
           <version>2.5.2</version>
           <configuration>
-            <enable>true</enable>
+            <skip>${ness.skip.check-build}</skip>
             <jvmargs>-Xmx${ness.build.jvmsize}</jvmargs>
             <failOnError>true</failOnError>
           </configuration>
@@ -525,6 +543,7 @@ limitations under the License.
           <artifactId>maven-pmd-plugin</artifactId>
           <version>2.7.1</version>
           <configuration>
+            <skip>${ness.skip.check-build}</skip>
             <targetJdk>${project.build.targetJdk}</targetJdk>
             <sourceEncoding>${project.build.sourceEncoding}</sourceEncoding>
             <minimumTokens>100</minimumTokens>
@@ -658,6 +677,35 @@ limitations under the License.
         <artifactId>maven-release-plugin</artifactId>
       </plugin>
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-enforcer-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-dependency-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>com.ning.maven.plugins</groupId>
+        <artifactId>maven-dependency-versions-check-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>com.ning.maven.plugins</groupId>
+        <artifactId>maven-duplicate-finder-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>findbugs-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-pmd-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
 
@@ -838,49 +886,6 @@ limitations under the License.
     </profile>
 
     <profile>
-      <id>check-build</id>
-      <activation>
-        <activeByDefault>true</activeByDefault>
-        <property>
-          <name>check-build</name>
-        </property>
-      </activation>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-enforcer-plugin</artifactId>
-          </plugin>
-
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-dependency-plugin</artifactId>
-          </plugin>
-
-          <plugin>
-            <groupId>com.ning.maven.plugins</groupId>
-            <artifactId>maven-dependency-versions-check-plugin</artifactId>
-          </plugin>
-
-          <plugin>
-            <groupId>com.ning.maven.plugins</groupId>
-            <artifactId>maven-duplicate-finder-plugin</artifactId>
-          </plugin>
-
-          <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>findbugs-maven-plugin</artifactId>
-          </plugin>
-
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-pmd-plugin</artifactId>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-
-    <profile>
       <id>check-license-headers</id>
       <activation>
         <property>
@@ -1037,7 +1042,6 @@ limitations under the License.
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-shade-plugin</artifactId>
             <configuration>
-              <finalName>${build.name}-solo</finalName>
               <shadedArtifactAttached>true</shadedArtifactAttached>
               <shadedClassifierName>solo</shadedClassifierName>
               <transformers>
