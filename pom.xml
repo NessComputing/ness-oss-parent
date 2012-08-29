@@ -232,6 +232,11 @@ limitations under the License.
                   <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates -->
                   <exclude>com.nesscomputing.components:ness-jersey-server</exclude>
                   <exclude>com.nesscomputing.components:ness-httpserver:(,2.1.1)</exclude>
+<!--
+                  <exclude>com.nesscomputing.components:ness-integration-testing:(,3.1.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-server:(,1.0.1)</exclude>
+                  <exclude>com.nesscomputing.components:ness-server-templates:(,1.0.1)</exclude>
+-->
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -1014,7 +1019,7 @@ limitations under the License.
               <archive>
                 <manifestSections combine.children="append">
                   <manifestSection>
-                    <name>${ness.galaxy.mainclass}</name>
+                    <name>${galaxy.mainclass}</name>
                     <manifestEntries>
                       <X-Ness-Binary>${project.artifactId}</X-Ness-Binary>
                       <X-Ness-Version>${project.version}</X-Ness-Version>
