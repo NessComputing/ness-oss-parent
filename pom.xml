@@ -229,8 +229,9 @@ limitations under the License.
                   <exclude>com.likeness.components:*</exclude>
                   <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
                   <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
-                  <!-- Logging is messed up in all older versions. -->
-                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.0.2)</exclude>
+                  <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates -->
+                  <exclude>com.nesscomputing.components:ness-jersey-server</exclude>
+                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.1.1)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -1005,8 +1006,28 @@ limitations under the License.
               </execution>
             </executions>
           </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifestSections combine.children="append">
+                  <manifestSection>
+                    <name>${ness.galaxy.mainclass}</name>
+                    <manifestEntries>
+                      <X-Ness-Binary>${project.artifactId}</X-Ness-Binary>
+                      <X-Ness-Version>${project.version}</X-Ness-Version>
+                      <X-Ness-Type>galaxy</X-Ness-Type>
+                    </manifestEntries>
+                  </manifestSection>
+                </manifestSections>
+              </archive>
+            </configuration>
+          </plugin>
         </plugins>
       </build>
+
       <dependencies>
         <dependency>
           <groupId>com.nesscomputing.components</groupId>
@@ -1064,6 +1085,25 @@ limitations under the License.
                 </configuration>
               </execution>
             </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifestSections combine.children="append">
+                  <manifestSection>
+                    <name>${ness.solo.mainclass}</name>
+                    <manifestEntries>
+                      <X-Ness-Binary>${project.artifactId}</X-Ness-Binary>
+                      <X-Ness-Version>${project.version}</X-Ness-Version>
+                      <X-Ness-Type>solo</X-Ness-Type>
+                    </manifestEntries>
+                  </manifestSection>
+                </manifestSections>
+              </archive>
+            </configuration>
           </plugin>
         </plugins>
       </build>
