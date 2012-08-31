@@ -229,14 +229,13 @@ limitations under the License.
                   <exclude>com.likeness.components:*</exclude>
                   <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
                   <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
-                  <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates -->
+                  <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates. -->
+                  <!-- the following excludes ensure that it is no longer possible to build a service in any other way than using ness-server -->
                   <exclude>com.nesscomputing.components:ness-jersey-server</exclude>
-                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.1.1)</exclude>
-<!--
+                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.2.0)</exclude>
                   <exclude>com.nesscomputing.components:ness-integration-testing:(,3.1.0)</exclude>
-                  <exclude>com.nesscomputing.components:ness-server:(,1.0.1)</exclude>
-                  <exclude>com.nesscomputing.components:ness-server-templates:(,1.0.1)</exclude>
--->
+                  <exclude>com.nesscomputing.components:ness-server:(,2.0.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-server-templates:(,2.0.0)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -1023,7 +1022,7 @@ limitations under the License.
                     <manifestEntries>
                       <X-Ness-Binary>${project.artifactId}</X-Ness-Binary>
                       <X-Ness-Version>${project.version}</X-Ness-Version>
-                      <X-Ness-Type>galaxy</X-Ness-Type>
+                      <X-Ness-Mode>galaxy</X-Ness-Mode>
                     </manifestEntries>
                   </manifestSection>
                 </manifestSections>
@@ -1103,7 +1102,7 @@ limitations under the License.
                     <manifestEntries>
                       <X-Ness-Binary>${project.artifactId}</X-Ness-Binary>
                       <X-Ness-Version>${project.version}</X-Ness-Version>
-                      <X-Ness-Type>solo</X-Ness-Type>
+                      <X-Ness-Mode>solo</X-Ness-Mode>
                     </manifestEntries>
                   </manifestSection>
                 </manifestSections>
