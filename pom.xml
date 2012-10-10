@@ -66,7 +66,7 @@ limitations under the License.
   <properties>
     <!-- see http://docs.codehaus.org/display/MAVENUSER/POM+Element+for+Source+File+Encoding -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.build.targetJdk>1.6</project.build.targetJdk>
+    <project.build.targetJdk>1.7</project.build.targetJdk>
     <ness.build.jvmsize>1024m</ness.build.jvmsize>
 
     <!-- the current "best" version of maven -->
@@ -964,7 +964,7 @@ limitations under the License.
         <galaxy.launcher>${galaxy.packaging}</galaxy.launcher>
 
         <!-- Default JDK to use for the tarball. -->
-        <galaxy.jvm>1.6.0</galaxy.jvm>
+        <galaxy.jvm>1.7.0</galaxy.jvm>
       </properties>
       <build>
         <plugins>
