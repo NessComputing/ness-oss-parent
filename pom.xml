@@ -242,6 +242,7 @@ limitations under the License.
                   <exclude>ness.components:*</exclude>
                   <!-- moved on to com.nesscomputing.* -->
                   <exclude>com.likeness.components:*</exclude>
+                  <exclude>com.nesscomputing.components:ness-core:(,1.4.0)</exclude>
                   <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
                   <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
                   <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates. -->
