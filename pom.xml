@@ -229,9 +229,8 @@ limitations under the License.
                   <exclude>cglib:cglib</exclude>
                   <!-- commons-logging directs to log4j directly.  No need for slf4j -->
                   <exclude>org.slf4j:jcl-over-slf4j</exclude>
-                  <!-- junit repackages hamcrest into its own jar, which is a big no-no.
-                       junit-dep fixes this problem, so use that instead please! -->
-                  <exclude>junit:junit</exclude>
+                  <!-- junit-dep used to have a classless repackaging of Hamcrest, but now is deprecated. -->
+                  <exclude>junit:junit-dep</exclude>
                   <!-- completely and utterly broken -->
                   <exclude>org.weakref:jmxutils:(,1.11]</exclude>
                   <!-- only the jsr305 jar is allowed, for @SuppressWarnings use our own custom jar -->
@@ -869,8 +868,8 @@ limitations under the License.
       <!-- Testing -->
       <dependency>
         <groupId>junit</groupId>
-        <artifactId>junit-dep</artifactId>
-        <version>4.10</version>
+        <artifactId>junit</artifactId>
+        <version>4.11</version>
       </dependency>
       <dependency>
         <groupId>org.easymock</groupId>
@@ -895,7 +894,7 @@ limitations under the License.
       <dependency>
         <groupId>com.nesscomputing.testing</groupId>
         <artifactId>kawala-lessio</artifactId>
-        <version>2.1.1</version>
+        <version>2.1.2</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
