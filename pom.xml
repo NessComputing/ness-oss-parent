@@ -27,7 +27,7 @@ limitations under the License.
   <groupId>com.nesscomputing</groupId>
   <artifactId>ness-oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>23-SNAPSHOT</version>
+  <version>23</version>
   <name>ness-oss-parent</name>
   <description>This is the parent POM for Ness open source maven projects.</description>
   <url>https://opensource.nesscomputing.com/</url>
@@ -45,7 +45,7 @@ limitations under the License.
     <connection>scm:git:git://github.com/NessComputing/ness-oss-parent.git</connection>
     <developerConnection>scm:git:git@github.com:NessComputing/ness-oss-parent.git</developerConnection>
     <url>http://github.com/NessComputing/ness-oss-parent</url>
-    <tag>HEAD</tag>
+    <tag>ness-oss-parent-23</tag>
   </scm>
 
   <organization>
