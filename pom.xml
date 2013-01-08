@@ -1085,6 +1085,32 @@ limitations under the License.
               </dependency>
             </dependencies>
           </plugin>
+          
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>check-galaxy-build</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireProperty>
+                      <property>galaxy.mainclass</property>
+                      <message>You must specify "galaxy.mainclass" as a Maven property for a Galaxy-enabled build.</message>
+                    </requireProperty>
+                    <requireProperty>
+                      <property>galaxy.packaging</property>
+                      <message>You must specify "galaxy.packaging" as a Maven property for a Galaxy-enabled build.  "standalone" is a good choice usually.</message>
+                    </requireProperty>
+                  </rules>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
 
           <!-- Turn off regular deployment when building a galaxy tarball -->
           <plugin>
@@ -1175,6 +1201,28 @@ limitations under the License.
                 <id>default-deploy</id>
                 <configuration>
                   <skip>${ness.solo.skip.deploy}</skip>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-enforcer-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>check-solo-build</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>enforce</goal>
+                </goals>
+                <configuration>
+                  <rules>
+                    <requireProperty>
+                      <property>ness.solo.mainclass</property>
+                      <message>You must specify "ness.solo.mainclass" as a Maven property for a solo build.</message>
+                    </requireProperty>
+                  </rules>
                 </configuration>
               </execution>
             </executions>
