@@ -265,6 +265,7 @@ limitations under the License.
                   <exclude>com.nesscomputing.components:ness-server:(,2.0.2)</exclude>
                   <exclude>com.nesscomputing.components:ness-server-templates:(,2.0.2)</exclude>
                   <exclude>com.nesscomputing.components:ness-logging:(,1.1.1)</exclude>
+                  <exclude>com.nesscomputing.components:ness-jackson:(,2.0.0)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
