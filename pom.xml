@@ -224,7 +224,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>enforce</goal>
               </goals>
@@ -295,7 +295,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
@@ -439,7 +439,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>check</goal>
               </goals>
