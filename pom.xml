@@ -678,7 +678,7 @@ limitations under the License.
           <artifactId>maven-site-plugin</artifactId>
           <version>3.1</version>
         </plugin>
-        
+
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
