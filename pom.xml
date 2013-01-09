@@ -951,6 +951,7 @@ limitations under the License.
     <profile>
       <id>check-license-headers</id>
       <activation>
+        <activeByDefault>true</activeByDefault>
         <property>
           <name>check-license-headers</name>
         </property>
