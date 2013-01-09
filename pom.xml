@@ -128,15 +128,11 @@ limitations under the License.
                 </pluginExecution>
                 <pluginExecution>
                   <pluginExecutionFilter>
-                    <groupId>
-                      com.ning.maven.plugins
+                    <groupId>com.ning.maven.plugins
                     </groupId>
-                    <artifactId>
-                      maven-dependency-versions-check-plugin
+                    <artifactId>maven-dependency-versions-check-plugin
                     </artifactId>
-                    <versionRange>
-                      [0,)
-                    </versionRange>
+                    <versionRange>[0,)</versionRange>
                     <goals>
                       <goal>check</goal>
                     </goals>
@@ -180,6 +176,19 @@ limitations under the License.
                       <goal>analyze-dep-mgt</goal>
                       <goal>analyze-duplicate</goal>
                       <goal>analyze-only</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>com.ning.maven.plugins</groupId>
+                    <artifactId>maven-duplicate-finder-plugin</artifactId>
+                    <versionRange>[0,)</versionRange>
+                    <goals>
+                      <goal>check</goal>
                     </goals>
                   </pluginExecutionFilter>
                   <action>
