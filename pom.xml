@@ -115,15 +115,9 @@ limitations under the License.
               <pluginExecutions>
                 <pluginExecution>
                   <pluginExecutionFilter>
-                    <groupId>
-                      org.apache.maven.plugins
-                    </groupId>
-                    <artifactId>
-                      maven-enforcer-plugin
-                    </artifactId>
-                    <versionRange>
-                      [0,)
-                    </versionRange>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-enforcer-plugin</artifactId>
+                    <versionRange>[0,)</versionRange>
                     <goals>
                       <goal>enforce</goal>
                     </goals>
@@ -153,15 +147,9 @@ limitations under the License.
                 </pluginExecution>
                 <pluginExecution>
                   <pluginExecutionFilter>
-                    <groupId>
-                      com.likeness.mojo
-                    </groupId>
-                    <artifactId>
-                      maven-numbers-plugin
-                    </artifactId>
-                    <versionRange>
-                      [0,)
-                    </versionRange>
+                    <groupId>com.likeness.mojo</groupId>
+                    <artifactId>maven-numbers-plugin</artifactId>
+                    <versionRange>[0,)</versionRange>
                     <goals>
                       <goal>get</goal>
                     </goals>
@@ -174,9 +162,24 @@ limitations under the License.
                   <pluginExecutionFilter>
                     <groupId>pl.project13.maven</groupId>
                     <artifactId>git-commit-id-plugin</artifactId>
-                    <versionRange>[2.1.2,)</versionRange>
+                    <versionRange>[0,)</versionRange>
                     <goals>
                       <goal>revision</goal>
+                    </goals>
+                  </pluginExecutionFilter>
+                  <action>
+                    <ignore />
+                  </action>
+                </pluginExecution>
+                <pluginExecution>
+                  <pluginExecutionFilter>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <versionRange>[0,)</versionRange>
+                    <goals>
+                      <goal>analyze-dep-mgt</goal>
+                      <goal>analyze-duplicate</goal>
+                      <goal>analyze-only</goal>
                     </goals>
                   </pluginExecutionFilter>
                   <action>
@@ -224,7 +227,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>enforce</goal>
               </goals>
@@ -265,6 +268,7 @@ limitations under the License.
                   <exclude>com.nesscomputing.components:ness-server:(,2.0.2)</exclude>
                   <exclude>com.nesscomputing.components:ness-server-templates:(,2.0.2)</exclude>
                   <exclude>com.nesscomputing.components:ness-logging:(,1.1.1)</exclude>
+                  <exclude>com.nesscomputing.components:ness-jackson:(,2.0.0)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
@@ -294,7 +298,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
@@ -438,7 +442,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>verify</phase>
+              <phase>validate</phase>
               <goals>
                 <goal>check</goal>
               </goals>
@@ -677,7 +681,7 @@ limitations under the License.
           <artifactId>maven-site-plugin</artifactId>
           <version>3.1</version>
         </plugin>
-        
+
         <plugin>
           <groupId>pl.project13.maven</groupId>
           <artifactId>git-commit-id-plugin</artifactId>
@@ -950,6 +954,7 @@ limitations under the License.
     <profile>
       <id>check-license-headers</id>
       <activation>
+        <activeByDefault>true</activeByDefault>
         <property>
           <name>check-license-headers</name>
         </property>
