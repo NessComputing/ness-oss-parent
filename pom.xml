@@ -298,7 +298,7 @@ limitations under the License.
           <executions>
             <execution>
               <id>default</id>
-              <phase>validate</phase>
+              <phase>verify</phase>
               <goals>
                 <goal>analyze-only</goal>
                 <goal>analyze-duplicate</goal>
