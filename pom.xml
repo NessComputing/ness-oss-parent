@@ -842,7 +842,7 @@ limitations under the License.
       <dependency>
         <groupId>org.skife.config</groupId>
         <artifactId>config-magic</artifactId>
-        <version>0.14</version>
+        <version>0.17</version>
       </dependency>
 
       <!-- Logging -->
