@@ -266,18 +266,18 @@ limitations under the License.
                   <exclude>ness.components:*</exclude>
                   <!-- moved on to com.nesscomputing.* -->
                   <exclude>com.likeness.components:*</exclude>
-                  <exclude>com.nesscomputing.components:ness-core:(,1.4.0)</exclude>
-                  <!-- Had a serious bug that causes tons of nulls to be sent to the client -->
-                  <exclude>com.nesscomputing.components:ness-jersey:(,1.1.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-core:(,1.6.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-jersey:(,1.8.0)</exclude>
                   <!-- stop using the httpserver based standalone service, move towards ness-server and ness-server-templates. -->
                   <!-- the following excludes ensure that it is no longer possible to build a service in any other way than using ness-server -->
                   <exclude>com.nesscomputing.components:ness-jersey-server</exclude>
-                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.2.0)</exclude>
-                  <exclude>com.nesscomputing.components:ness-integration-testing:(,3.1.1)</exclude>
-                  <exclude>com.nesscomputing.components:ness-server:(,2.1.0)</exclude>
-                  <exclude>com.nesscomputing.components:ness-server-templates:(,2.1.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-httpserver:(,2.3.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-integration-testing:(,3.3.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-server:(,2.2.1)</exclude>
+                  <exclude>com.nesscomputing.components:ness-server-templates:(,2.2.1)</exclude>
                   <exclude>com.nesscomputing.components:ness-logging:(,1.1.1)</exclude>
-                  <exclude>com.nesscomputing.components:ness-jackson:(,2.0.0)</exclude>
+                  <exclude>com.nesscomputing.components:ness-jackson:(,2.2.2)</exclude>
+                  <exclude>com.nesscomputing.components:ness-httpclient:(,2.0.2)</exclude>
                 </excludes>
               </bannedDependencies>
               <requireMavenVersion>
