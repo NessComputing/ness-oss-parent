@@ -144,7 +144,7 @@ limitations under the License.
                 <pluginExecution>
                   <pluginExecutionFilter>
                     <groupId>com.nesscomputing.mojo</groupId>
-                    <artifactId>maven-numbers-plugin</artifactId>
+                    <artifactId>numbers-maven-plugin</artifactId>
                     <versionRange>[0,)</versionRange>
                     <goals>
                       <goal>get</goal>
