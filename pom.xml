@@ -836,7 +836,7 @@ limitations under the License.
       <dependency>
         <groupId>joda-time</groupId>
         <artifactId>joda-time</artifactId>
-        <version>2.1</version>
+        <version>2.3</version>
       </dependency>
 
       <!-- config-magic -->
