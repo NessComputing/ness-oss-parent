@@ -847,6 +847,12 @@ limitations under the License.
         <version>0.17</version>
       </dependency>
 
+      <dependency>
+        <groupId>org.weakref</groupId>
+        <artifactId>jmxutils</artifactId>
+        <version>1.14</version>
+      </dependency>
+
       <!-- Logging -->
       <dependency>
         <groupId>org.slf4j</groupId>
