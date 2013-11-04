@@ -364,8 +364,8 @@ limitations under the License.
           <version>2.16</version>
           <configuration>
             <useManifestOnlyJar>false</useManifestOnlyJar>
+            <argLine>${argLine} -Dfile.encoding=${project.build.sourceEncoding}</argLine>
             <systemPropertyVariables combine.children="append">
-              <file.encoding>${project.build.sourceEncoding}</file.encoding>
               <sun.jnu.encoding>${project.build.sourceEncoding}</sun.jnu.encoding>
               <user.timezone>UTC</user.timezone>
               <java.awt.headless>true</java.awt.headless>
@@ -1048,7 +1048,7 @@ limitations under the License.
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-surefire-plugin</artifactId>
               <configuration>
-                <argLine>-Djava.security.manager=com.nesscomputing.testing.lessio.LessIOSecurityManager</argLine>
+                <argLine>${argLine} -Dfile.encoding=${project.build.sourceEncoding} -Djava.security.manager=com.nesscomputing.testing.lessio.LessIOSecurityManager</argLine>
               </configuration>
             </plugin>
           </plugins>
