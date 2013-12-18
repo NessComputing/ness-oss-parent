@@ -80,6 +80,7 @@ limitations under the License.
 
     <ness.dep.guice.version>3.0</ness.dep.guice.version>
     <ness.dep.slf4j.version>1.7.5</ness.dep.slf4j.version>
+    <argLine></argLine>
   </properties>
 
   <prerequisites>
