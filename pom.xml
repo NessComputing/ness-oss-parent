@@ -611,12 +611,7 @@ limitations under the License.
               <excludeRoot>target/generated-sources/stubs</excludeRoot>
             </excludeRoots>
             <rulesets>
-              <ruleset>/rulesets/java/basic.xml</ruleset>
-              <ruleset>/rulesets/java/clone.xml</ruleset>
-              <ruleset>/rulesets/java/finalizers.xml</ruleset>
-              <ruleset>/rulesets/java/imports.xml</ruleset>
-              <ruleset>/rulesets/java/junit.xml</ruleset>
-              <ruleset>/rulesets/java/logging-java.xml</ruleset>
+              <ruleset>/ness-pmd-rulesets/ness.xml</ruleset>
             </rulesets>
           </configuration>
           <executions>
@@ -628,6 +623,13 @@ limitations under the License.
               </goals>
             </execution>
           </executions>
+          <dependencies>
+            <dependency>
+              <groupId>com.nesscomputing</groupId>
+              <artifactId>ness-pmd-rulesets</artifactId>
+              <version>1.0.0</version>
+            </dependency>
+          </dependencies>
         </plugin>
 
         <plugin>
