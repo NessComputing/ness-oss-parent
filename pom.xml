@@ -627,7 +627,7 @@ limitations under the License.
             <dependency>
               <groupId>com.nesscomputing</groupId>
               <artifactId>ness-pmd-rulesets</artifactId>
-              <version>1.0.0</version>
+              <version>1.0.1</version>
             </dependency>
           </dependencies>
         </plugin>
